@@ -1,0 +1,50 @@
+MPLINK 4.49, Linker
+Linker Map File - Created Thu Dec 08 02:13:24 2022
+
+                                 Section Info
+                  Section       Type    Address   Location Size(Bytes)
+                ---------  ---------  ---------  ---------  ---------
+                   .org_0       code   0x000000    program   0x000000
+                   .org_1       code   0x000000    program   0x000002
+                   .org_2       code   0x000005    program   0x00015c
+
+
+
+                              Program Memory Usage 
+                               Start         End      
+                           ---------   ---------      
+                            0x000000    0x000000      
+                            0x000005    0x0000b2      
+            175 out of 8454 program addresses used, program memory utilization is 2%
+
+
+
+                              Symbols - Sorted by Name
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                  ACCION1   0x00001f    program     static C:\Users\joeld\Desktop\Materias del semestre\MICROCOMPUTADORAS\Laboratorio\Practicas\Practica 5\p5_3.asm
+                  ACCION2   0x00004c    program     static C:\Users\joeld\Desktop\Materias del semestre\MICROCOMPUTADORAS\Laboratorio\Practicas\Practica 5\p5_3.asm
+                  ACCION3   0x000079    program     static C:\Users\joeld\Desktop\Materias del semestre\MICROCOMPUTADORAS\Laboratorio\Practicas\Practica 5\p5_3.asm
+                   INICIO   0x000005    program     static C:\Users\joeld\Desktop\Materias del semestre\MICROCOMPUTADORAS\Laboratorio\Practicas\Practica 5\p5_3.asm
+                     LOOP   0x000012    program     static C:\Users\joeld\Desktop\Materias del semestre\MICROCOMPUTADORAS\Laboratorio\Practicas\Practica 5\p5_3.asm
+                      dos   0x0000aa    program     static C:\Users\joeld\Desktop\Materias del semestre\MICROCOMPUTADORAS\Laboratorio\Practicas\Practica 5\p5_3.asm
+                  retardo   0x0000a6    program     static C:\Users\joeld\Desktop\Materias del semestre\MICROCOMPUTADORAS\Laboratorio\Practicas\Practica 5\p5_3.asm
+                     tres   0x0000a8    program     static C:\Users\joeld\Desktop\Materias del semestre\MICROCOMPUTADORAS\Laboratorio\Practicas\Practica 5\p5_3.asm
+                      uno   0x0000ac    program     static C:\Users\joeld\Desktop\Materias del semestre\MICROCOMPUTADORAS\Laboratorio\Practicas\Practica 5\p5_3.asm
+
+
+
+                              Symbols - Sorted by Address
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                   INICIO   0x000005    program     static C:\Users\joeld\Desktop\Materias del semestre\MICROCOMPUTADORAS\Laboratorio\Practicas\Practica 5\p5_3.asm
+                     LOOP   0x000012    program     static C:\Users\joeld\Desktop\Materias del semestre\MICROCOMPUTADORAS\Laboratorio\Practicas\Practica 5\p5_3.asm
+                  ACCION1   0x00001f    program     static C:\Users\joeld\Desktop\Materias del semestre\MICROCOMPUTADORAS\Laboratorio\Practicas\Practica 5\p5_3.asm
+                  ACCION2   0x00004c    program     static C:\Users\joeld\Desktop\Materias del semestre\MICROCOMPUTADORAS\Laboratorio\Practicas\Practica 5\p5_3.asm
+                  ACCION3   0x000079    program     static C:\Users\joeld\Desktop\Materias del semestre\MICROCOMPUTADORAS\Laboratorio\Practicas\Practica 5\p5_3.asm
+                  retardo   0x0000a6    program     static C:\Users\joeld\Desktop\Materias del semestre\MICROCOMPUTADORAS\Laboratorio\Practicas\Practica 5\p5_3.asm
+                     tres   0x0000a8    program     static C:\Users\joeld\Desktop\Materias del semestre\MICROCOMPUTADORAS\Laboratorio\Practicas\Practica 5\p5_3.asm
+                      dos   0x0000aa    program     static C:\Users\joeld\Desktop\Materias del semestre\MICROCOMPUTADORAS\Laboratorio\Practicas\Practica 5\p5_3.asm
+                      uno   0x0000ac    program     static C:\Users\joeld\Desktop\Materias del semestre\MICROCOMPUTADORAS\Laboratorio\Practicas\Practica 5\p5_3.asm
+
+
