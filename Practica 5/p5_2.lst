@@ -1,4 +1,4 @@
-MPASM  5.51                          P5_2.ASM   12-4-2022  18:45:10         PAGE  1
+MPASM  5.51                          P5_2.ASM   1-5-2023  7:04:05         PAGE  1
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -22,7 +22,7 @@ Message[301]: MESSAGE: (Processor-header file mismatch.  Verify selected process
   00000021            00004 valor1 equ h'21'
   00000022            00005 valor2 equ h'22'
   00000023            00006 valor3 equ h'23'
-  00000080            00007 cte1 equ 80h
+  00000001            00007 cte1 equ 1h
   00000050            00008 cte2 equ 50h
   00000060            00009 cte3 equ 60h
                       00010 
@@ -57,7 +57,7 @@ Message[302]: Register in operand not in bank 0.  Ensure that bank bits are corr
 0011   01A6           00032         CLRF VAR2               ; Limpia las variables
                       00033 
                       00034 
-MPASM  5.51                          P5_2.ASM   12-4-2022  18:45:10         PAGE  2
+MPASM  5.51                          P5_2.ASM   1-5-2023  7:04:05         PAGE  2
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -71,7 +71,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
 0016   281F           00040         GOTO ACCION2
 0017   282C           00041         GOTO ACCION3
 0018   2839           00042         GOTO ACCION4
-0019   284B           00043         GOTO ACCION5
+0019   2851           00043         GOTO ACCION5
                       00044 
 001A                  00045 ACCION1:
 001A   3000           00046         MOVLW 0X00              ; PARO-PARO
@@ -83,117 +83,133 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
 001F                  00052 ACCION2:                        ; GIRA EN SENTIDO HORARIO
 001F   30C0           00053         MOVLW B'11000000'
 0020   0086           00054         MOVWF PORTB
-0021   205D           00055         CALL RETARDO
+0021   2069           00055         CALL RETARDO
 0022   3060           00056         MOVLW B'01100000'
 0023   0086           00057         MOVWF PORTB
-0024   205D           00058         CALL RETARDO
+0024   2069           00058         CALL RETARDO
 0025   3030           00059         MOVLW B'00110000'
 0026   0086           00060         MOVWF PORTB
-0027   205D           00061         CALL RETARDO
+0027   2069           00061         CALL RETARDO
 0028   3090           00062         MOVLW B'10010000'
 0029   0086           00063         MOVWF PORTB
-002A   205D           00064         CALL RETARDO
+002A   2069           00064         CALL RETARDO
 002B   2812           00065         GOTO loop2
                       00066 
 002C                  00067 ACCION3:                        ; GIRA EN SENTIDO ANTI-HORARIO
 002C   3090           00068         MOVLW B'10010000'
 002D   0086           00069         MOVWF PORTB
-002E   205D           00070         CALL RETARDO
+002E   2069           00070         CALL RETARDO
 002F   3030           00071         MOVLW B'00110000'
 0030   0086           00072         MOVWF PORTB
-0031   205D           00073         CALL RETARDO
+0031   2069           00073         CALL RETARDO
 0032   3060           00074         MOVLW B'01100000'
 0033   0086           00075         MOVWF PORTB
-0034   205D           00076         CALL RETARDO
+0034   2069           00076         CALL RETARDO
 0035   30C0           00077         MOVLW B'11000000'
 0036   0086           00078         MOVWF PORTB
-0037   205D           00079         CALL RETARDO
+0037   2069           00079         CALL RETARDO
 0038   2812           00080         GOTO loop2
                       00081 
 0039                  00082 ACCION4:                        ; GIRA 5 VUELTAS SENTIDO HORARIO
-0039   3005           00083         MOVLW 05H
+0039   300A           00083         MOVLW H'0A'             ; 10 VECES LA MEDIA VUELTA
 003A   0225           00084         SUBWF VAR1,W
 003B   1903           00085         BTFSC STATUS, Z
 003C   2812           00086         GOTO loop2
                       00087         
-MPASM  5.51                          P5_2.ASM   12-4-2022  18:45:10         PAGE  3
+MPASM  5.51                          P5_2.ASM   1-5-2023  7:04:05         PAGE  3
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
   VALUE
 
+003D   30C0           00088         MOVLW B'11000000'
+003E   0086           00089         MOVWF PORTB
+003F   2069           00090         CALL RETARDO
+0040   3060           00091         MOVLW B'01100000'
+0041   0086           00092         MOVWF PORTB
+0042   2069           00093         CALL RETARDO
+0043   3030           00094         MOVLW B'00110000'
+0044   0086           00095         MOVWF PORTB
+0045   2069           00096         CALL RETARDO
+0046   3090           00097         MOVLW B'10010000'
+0047   0086           00098         MOVWF PORTB
+0048   2069           00099         CALL RETARDO
 Message[305]: Using default destination of 1 (file).
-003D   0AA5           00088         INCF VAR1
-003E   30C0           00089         MOVLW B'11000000'
-003F   0086           00090         MOVWF PORTB
-0040   205D           00091         CALL RETARDO
-0041   3060           00092         MOVLW B'01100000'
-0042   0086           00093         MOVWF PORTB
-0043   205D           00094         CALL RETARDO
-0044   3030           00095         MOVLW B'00110000'
-0045   0086           00096         MOVWF PORTB
-0046   205D           00097         CALL RETARDO
-0047   3090           00098         MOVLW B'10010000'
-0048   0086           00099         MOVWF PORTB
-0049   205D           00100         CALL RETARDO
-004A   2812           00101         GOTO loop2
-                      00102 
-                      00103 
-004B                  00104 ACCION5:                        ; GIRA 10 VUELTAS SENTIDO ANTIHORARIO
-004B   300A           00105         MOVLW 0AH
-004C   0226           00106         SUBWF VAR2,W
-004D   1903           00107         BTFSC STATUS, Z
-004E   2812           00108         GOTO loop2
-                      00109         
+0049   0AA6           00100         INCF VAR2
+                      00101 
+004A   30FF           00102         MOVLW H'FF'             ; 1/2 VUELTA
+004B   0226           00103         SUBWF VAR2,W
+004C   1D03           00104         BTFSS STATUS, Z
+004D   2812           00105         GOTO loop2
 Message[305]: Using default destination of 1 (file).
-004F   0AA6           00110         INCF VAR2
-0050   3090           00111         MOVLW B'10010000'
-0051   0086           00112         MOVWF PORTB
-0052   205D           00113         CALL RETARDO
-0053   3030           00114         MOVLW B'00110000'
-0054   0086           00115         MOVWF PORTB
-0055   205D           00116         CALL RETARDO
-0056   3060           00117         MOVLW B'01100000'
-0057   0086           00118         MOVWF PORTB
-0058   205D           00119         CALL RETARDO
-0059   30C0           00120         MOVLW B'11000000'
-005A   0086           00121         MOVWF PORTB
-005B   205D           00122         CALL RETARDO
-005C   2812           00123         GOTO loop2
-                      00124 
-005D                  00125 RETARDO:
-005D   3080           00126         MOVLW cte1
-005E   00A1           00127         MOVWF valor1
-                      00128 
-005F                  00129 tres:
-005F   3050           00130         MOVLW cte2
-0060   00A2           00131         MOVWF valor2
-                      00132 
-0061                  00133 dos:
-0061   3060           00134         MOVLW cte3
-0062   00A3           00135         MOVWF valor3
-                      00136 
-0063                  00137 uno:
+004E   0AA5           00106         INCF VAR1
+004F   01A6           00107         CLRF VAR2
+0050   2812           00108         GOTO loop2
+                      00109 
+                      00110 
+0051                  00111 ACCION5:                        ; GIRA 10 VUELTAS SENTIDO ANTIHORARIO
+0051   3014           00112         MOVLW D'20'             ; 20 VECES LA MEDIA VUELTA
+0052   0225           00113         SUBWF VAR1,W
+0053   1903           00114         BTFSC STATUS, Z
+0054   2812           00115         GOTO loop2
+                      00116         
+0055   3090           00117         MOVLW B'10010000'
+0056   0086           00118         MOVWF PORTB
+0057   2069           00119         CALL RETARDO
+0058   3030           00120         MOVLW B'00110000'
+0059   0086           00121         MOVWF PORTB
+005A   2069           00122         CALL RETARDO
+005B   3060           00123         MOVLW B'01100000'
+005C   0086           00124         MOVWF PORTB
+005D   2069           00125         CALL RETARDO
+005E   30C0           00126         MOVLW B'11000000'
+005F   0086           00127         MOVWF PORTB
+0060   2069           00128         CALL RETARDO
 Message[305]: Using default destination of 1 (file).
-MPASM  5.51                          P5_2.ASM   12-4-2022  18:45:10         PAGE  4
+0061   0AA6           00129         INCF VAR2
+                      00130         
+0062   30FF           00131         MOVLW H'FF'             ; 1/2 VUELTA
+0063   0226           00132         SUBWF VAR2,W
+0064   1D03           00133         BTFSS STATUS, Z
+0065   2812           00134         GOTO loop2
+Message[305]: Using default destination of 1 (file).
+0066   0AA5           00135         INCF VAR1
+0067   01A6           00136         CLRF VAR2
+MPASM  5.51                          P5_2.ASM   1-5-2023  7:04:05         PAGE  4
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
   VALUE
 
-0063   0BA3           00138         DECFSZ valor3
-0064   2863           00139         GOTO uno
+0068   2812           00137         GOTO loop2
+                      00138 
+0069                  00139 RETARDO:
+0069   3001           00140         MOVLW cte1
+006A   00A1           00141         MOVWF valor1
+                      00142 
+006B                  00143 tres:
+006B   3050           00144         MOVLW cte2
+006C   00A2           00145         MOVWF valor2
+                      00146 
+006D                  00147 dos:
+006D   3060           00148         MOVLW cte3
+006E   00A3           00149         MOVWF valor3
+                      00150 
+006F                  00151 uno:
 Message[305]: Using default destination of 1 (file).
-0065   0BA2           00140         DECFSZ valor2
-0066   2861           00141         GOTO dos
+006F   0BA3           00152         DECFSZ valor3
+0070   286F           00153         GOTO uno
 Message[305]: Using default destination of 1 (file).
-0067   0BA1           00142         DECFSZ valor1
-0068   285F           00143         GOTO tres
-0069   0008           00144         RETURN
-                      00145 
+0071   0BA2           00154         DECFSZ valor2
+0072   286D           00155         GOTO dos
+Message[305]: Using default destination of 1 (file).
+0073   0BA1           00156         DECFSZ valor1
+0074   286B           00157         GOTO tres
+0075   0008           00158         RETURN
+                      00159 
 Warning[205]: Found directive in column 1. (END)
-                      00146 END
-MPASM  5.51                          P5_2.ASM   12-4-2022  18:45:10         PAGE  5
+                      00160 END
+MPASM  5.51                          P5_2.ASM   1-5-2023  7:04:05         PAGE  5
 
 
 SYMBOL TABLE
@@ -203,7 +219,7 @@ ACCION1                           0000001A
 ACCION2                           0000001F
 ACCION3                           0000002C
 ACCION4                           00000039
-ACCION5                           0000004B
+ACCION5                           00000051
 ACKDT                             00000005
 ACKEN                             00000004
 ACKSTAT                           00000006
@@ -252,7 +268,7 @@ CHS1                              00000004
 CHS2                              00000005
 CKE                               00000006
 CKP                               00000004
-MPASM  5.51                          P5_2.ASM   12-4-2022  18:45:10         PAGE  6
+MPASM  5.51                          P5_2.ASM   1-5-2023  7:04:05         PAGE  6
 
 
 SYMBOL TABLE
@@ -311,7 +327,7 @@ NOT_W                             00000002
 NOT_WRITE                         00000002
 OBF                               00000006
 OERR                              00000001
-MPASM  5.51                          P5_2.ASM   12-4-2022  18:45:10         PAGE  7
+MPASM  5.51                          P5_2.ASM   1-5-2023  7:04:05         PAGE  7
 
 
 SYMBOL TABLE
@@ -370,7 +386,7 @@ RC4                               00000004
 RC5                               00000005
 RC6                               00000006
 RC7                               00000007
-MPASM  5.51                          P5_2.ASM   12-4-2022  18:45:10         PAGE  8
+MPASM  5.51                          P5_2.ASM   1-5-2023  7:04:05         PAGE  8
 
 
 SYMBOL TABLE
@@ -397,7 +413,7 @@ RE0                               00000000
 RE1                               00000001
 RE2                               00000002
 READ_WRITE                        00000002
-RETARDO                           0000005D
+RETARDO                           00000069
 RP0                               00000005
 RP1                               00000006
 RSEN                              00000001
@@ -429,7 +445,7 @@ SYNC                              00000004
 T0CS                              00000005
 T0IE                              00000005
 T0IF                              00000002
-MPASM  5.51                          P5_2.ASM   12-4-2022  18:45:10         PAGE  9
+MPASM  5.51                          P5_2.ASM   1-5-2023  7:04:05         PAGE  9
 
 
 SYMBOL TABLE
@@ -488,7 +504,7 @@ TRISC4                            00000004
 TRISC5                            00000005
 TRISC6                            00000006
 TRISC7                            00000007
-MPASM  5.51                          P5_2.ASM   12-4-2022  18:45:10         PAGE 10
+MPASM  5.51                          P5_2.ASM   1-5-2023  7:04:05         PAGE 10
 
 
 SYMBOL TABLE
@@ -547,7 +563,7 @@ _FOSC_XT                          00003FFD
 _HS_OSC                           00003FFE
 _IDLOC0                           00002000
 _IDLOC1                           00002001
-MPASM  5.51                          P5_2.ASM   12-4-2022  18:45:10         PAGE 11
+MPASM  5.51                          P5_2.ASM   1-5-2023  7:04:05         PAGE 11
 
 
 SYMBOL TABLE
@@ -571,13 +587,13 @@ _WRT_OFF                          00003DFF
 _WRT_ON                           00003FFF
 _XT_OSC                           00003FFD
 __16F877A                         00000001
-cte1                              00000080
+cte1                              00000001
 cte2                              00000050
 cte3                              00000060
-dos                               00000061
+dos                               0000006D
 loop2                             00000012
-tres                              0000005F
-uno                               00000063
+tres                              0000006B
+uno                               0000006F
 valor1                            00000021
 valor2                            00000022
 valor3                            00000023
@@ -586,16 +602,16 @@ valor3                            00000023
 MEMORY USAGE MAP ('X' = Used,  '-' = Unused)
 
 0000 : X----XXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX
-0040 : XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXX------ ----------------
+0040 : XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXX----------
 
 All other memory blocks unused.
 
-Program Memory Words Used:   102
-Program Memory Words Free:  8090
+Program Memory Words Used:   114
+Program Memory Words Free:  8078
 
 
 Errors   :     0
 Warnings :     6 reported,     0 suppressed
-Messages :     9 reported,     0 suppressed
+Messages :    11 reported,     0 suppressed
 
 

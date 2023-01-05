@@ -1,4 +1,4 @@
-MPASM  5.51                          P5_3.ASM   12-8-2022  2:13:23         PAGE  1
+MPASM  5.51                          P5_3.ASM   1-5-2023  7:07:51         PAGE  1
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -57,7 +57,7 @@ Message[302]: Register in operand not in bank 0.  Ensure that bank bits are corr
 0011   01A6           00032         CLRF VAR2               ; Limpia las variables
                       00033 
                       00034 
-MPASM  5.51                          P5_3.ASM   12-8-2022  2:13:23         PAGE  2
+MPASM  5.51                          P5_3.ASM   1-5-2023  7:07:51         PAGE  2
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -116,7 +116,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
 003D   20A6           00085         call retardo
 003E   20A6           00086         call retardo
 003F   20A6           00087         call retardo
-MPASM  5.51                          P5_3.ASM   12-8-2022  2:13:23         PAGE  3
+MPASM  5.51                          P5_3.ASM   1-5-2023  7:07:51         PAGE  3
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -175,7 +175,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
 006F   20A6           00138         call retardo
 0070   20A6           00139         call retardo
 0071   20A6           00140         call retardo
-MPASM  5.51                          P5_3.ASM   12-8-2022  2:13:23         PAGE  4
+MPASM  5.51                          P5_3.ASM   1-5-2023  7:07:51         PAGE  4
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -234,7 +234,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
 00A1   20A6           00191         call retardo
 00A2   20A6           00192         call retardo
 00A3   20A6           00193         call retardo
-MPASM  5.51                          P5_3.ASM   12-8-2022  2:13:23         PAGE  5
+MPASM  5.51                          P5_3.ASM   1-5-2023  7:07:51         PAGE  5
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -266,7 +266,7 @@ Message[305]: Using default destination of 1 (file).
                       00214 
 Warning[205]: Found directive in column 1. (END)
                       00215 END
-MPASM  5.51                          P5_3.ASM   12-8-2022  2:13:23         PAGE  6
+MPASM  5.51                          P5_3.ASM   1-5-2023  7:07:51         PAGE  6
 
 
 SYMBOL TABLE
@@ -325,7 +325,7 @@ CKE                               00000006
 CKP                               00000004
 CREN                              00000004
 CSRC                              00000007
-MPASM  5.51                          P5_3.ASM   12-8-2022  2:13:23         PAGE  7
+MPASM  5.51                          P5_3.ASM   1-5-2023  7:07:51         PAGE  7
 
 
 SYMBOL TABLE
@@ -384,7 +384,7 @@ NOT_WRITE                         00000002
 OBF                               00000006
 OERR                              00000001
 OPTION_REG                        00000081
-MPASM  5.51                          P5_3.ASM   12-8-2022  2:13:23         PAGE  8
+MPASM  5.51                          P5_3.ASM   1-5-2023  7:07:51         PAGE  8
 
 
 SYMBOL TABLE
@@ -443,7 +443,7 @@ RC5                               00000005
 RC6                               00000006
 RC7                               00000007
 RC8_9                             00000006
-MPASM  5.51                          P5_3.ASM   12-8-2022  2:13:23         PAGE  9
+MPASM  5.51                          P5_3.ASM   1-5-2023  7:07:51         PAGE  9
 
 
 SYMBOL TABLE
@@ -502,7 +502,7 @@ T0IE                              00000005
 T0IF                              00000002
 T0SE                              00000004
 T1CKPS0                           00000004
-MPASM  5.51                          P5_3.ASM   12-8-2022  2:13:23         PAGE 10
+MPASM  5.51                          P5_3.ASM   1-5-2023  7:07:51         PAGE 10
 
 
 SYMBOL TABLE
@@ -561,7 +561,7 @@ TRISC6                            00000006
 TRISC7                            00000007
 TRISD                             00000088
 TRISD0                            00000000
-MPASM  5.51                          P5_3.ASM   12-8-2022  2:13:23         PAGE 11
+MPASM  5.51                          P5_3.ASM   1-5-2023  7:07:51         PAGE 11
 
 
 SYMBOL TABLE
@@ -620,7 +620,7 @@ _IDLOC0                           00002000
 _IDLOC1                           00002001
 _IDLOC2                           00002002
 _IDLOC3                           00002003
-MPASM  5.51                          P5_3.ASM   12-8-2022  2:13:23         PAGE 12
+MPASM  5.51                          P5_3.ASM   1-5-2023  7:07:51         PAGE 12
 
 
 SYMBOL TABLE
