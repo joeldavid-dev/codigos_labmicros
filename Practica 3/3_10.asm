@@ -6,10 +6,10 @@ valor2 equ h'22'
 valor3 equ h'23'
 ;cte1 equ 20h
 ;cte1 equ 8h
-cte1 equ 90h
+cte1 equ h'FF'			; Aproximadamente 2 segundo
 cte2 equ 60h
 cte3 equ 60h
- 
+
 ORG 0
 GOTO INICIO
 ORG 5
@@ -21,12 +21,20 @@ INICIO:					; Seccion de inicio
 	MOVWF TRISB			; Configura puertos B como salidas
 	BCF STATUS,RP0		; Cambio al banco 0
 	CLRF PORTB			; Limpia PORTB donde se aplican las salidas
+
 loop2
-	MOVLW H'FF'			; W <- H'FF'
+	MOVLW b'01000001'	; W <- estado 1
 	MOVWF PORTB			; PORTB <- W
-	CALL retardo		; Llama a retardo
-	CLRF PORTB			; Apaga todos los leds
-	CALL retardo		; Llama a retardo
+	CALL retardo		; Tiempo que permanece encendido
+	MOVLW b'00100001'	; W <- estado 2
+	MOVWF PORTB			; PORTB <- W
+	CALL retardo		; Tiempo que permanece encendido
+	MOVLW b'00010100'	; W <- estado 3
+	MOVWF PORTB			; PORTB <- W
+	CALL retardo		; Tiempo que permanece encendido
+	MOVLW b'00010010'	; W <- estado 4
+	MOVWF PORTB			; PORTB <- W
+	CALL retardo		; Tiempo que permanece encendido
 	GOTO loop2			; Reinicia
  
 retardo					; Subrutina de retardo. Mantiene ocupado al PIC

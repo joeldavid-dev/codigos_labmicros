@@ -1,4 +1,4 @@
-MPASM  5.51                           3_8.ASM   1-5-2023  1:17:07         PAGE  1
+MPASM  5.51                          3_10.ASM   1-5-2023  1:43:32         PAGE  1
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -24,10 +24,10 @@ Message[301]: MESSAGE: (Processor-header file mismatch.  Verify selected process
   00000023            00006 valor3 equ h'23'
                       00007 ;cte1 equ 20h
                       00008 ;cte1 equ 8h
-  00000090            00009 cte1 equ 90h
+  000000FF            00009 cte1 equ h'FF'                  ; Aproximadamente 2 segundo
   00000060            00010 cte2 equ 60h
   00000060            00011 cte3 equ 60h
-                      00012  
+                      00012 
 Warning[205]: Found directive in column 1. (ORG)
 0000                  00013 ORG 0
 Warning[203]: Found opcode in column 1. (GOTO)
@@ -43,43 +43,51 @@ Message[302]: Register in operand not in bank 0.  Ensure that bank bits are corr
 0008   0086           00021         MOVWF TRISB                     ; Configura puertos B como salidas
 0009   1283           00022         BCF STATUS,RP0          ; Cambio al banco 0
 000A   0186           00023         CLRF PORTB                      ; Limpia PORTB donde se aplican las salidas
-000B                  00024 loop2
-000B   30FF           00025         MOVLW H'FF'                     ; W <- H'FF'
-000C   0086           00026         MOVWF PORTB                     ; PORTB <- W
-000D   2011           00027         CALL retardo            ; Llama a retardo
-000E   0186           00028         CLRF PORTB                      ; Apaga todos los leds
-000F   2011           00029         CALL retardo            ; Llama a retardo
-0010   280B           00030         GOTO loop2                      ; Reinicia
-                      00031  
-0011                  00032 retardo                                 ; Subrutina de retardo. Mantiene ocupado al PIC
-0011   3090           00033         MOVLW cte1                      ; durante cierta cantidad de tiempo. Despues regresa a
-0012   00A1           00034         MOVWF valor1            ; la linea de codigo donde se invoco.
-0013                  00035 tres
-0013   3060           00036         MOVLW cte2
-0014   00A2           00037         MOVWF valor2
-MPASM  5.51                           3_8.ASM   1-5-2023  1:17:07         PAGE  2
+                      00024 
+000B                  00025 loop2
+000B   3041           00026         MOVLW b'01000001'       ; W <- estado 1
+000C   0086           00027         MOVWF PORTB                     ; PORTB <- W
+000D   2018           00028         CALL retardo            ; Tiempo que permanece encendido
+000E   3021           00029         MOVLW b'00100001'       ; W <- estado 2
+000F   0086           00030         MOVWF PORTB                     ; PORTB <- W
+0010   2018           00031         CALL retardo            ; Tiempo que permanece encendido
+0011   3014           00032         MOVLW b'00010100'       ; W <- estado 3
+0012   0086           00033         MOVWF PORTB                     ; PORTB <- W
+0013   2018           00034         CALL retardo            ; Tiempo que permanece encendido
+0014   3012           00035         MOVLW b'00010010'       ; W <- estado 4
+0015   0086           00036         MOVWF PORTB                     ; PORTB <- W
+0016   2018           00037         CALL retardo            ; Tiempo que permanece encendido
+MPASM  5.51                          3_10.ASM   1-5-2023  1:43:32         PAGE  2
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
   VALUE
 
-0015                  00038 dos
-0015   3060           00039         MOVLW cte3
-0016   00A3           00040         MOVWF valor3
-0017                  00041 uno
+0017   280B           00038         GOTO loop2                      ; Reinicia
+                      00039  
+0018                  00040 retardo                                 ; Subrutina de retardo. Mantiene ocupado al PIC
+0018   30FF           00041         MOVLW cte1                      ; durante cierta cantidad de tiempo. Despues regresa a
+0019   00A1           00042         MOVWF valor1            ; la linea de codigo donde se invoco.
+001A                  00043 tres
+001A   3060           00044         MOVLW cte2
+001B   00A2           00045         MOVWF valor2
+001C                  00046 dos
+001C   3060           00047         MOVLW cte3
+001D   00A3           00048         MOVWF valor3
+001E                  00049 uno
 Message[305]: Using default destination of 1 (file).
-0017   0BA3           00042         DECFSZ valor3
-0018   2817           00043         GOTO uno
+001E   0BA3           00050         DECFSZ valor3
+001F   281E           00051         GOTO uno
 Message[305]: Using default destination of 1 (file).
-0019   0BA2           00044         DECFSZ valor2
-001A   2815           00045         GOTO dos
+0020   0BA2           00052         DECFSZ valor2
+0021   281C           00053         GOTO dos
 Message[305]: Using default destination of 1 (file).
-001B   0BA1           00046         DECFSZ valor1
-001C   2813           00047         GOTO tres
-001D   0008           00048         RETURN
+0022   0BA1           00054         DECFSZ valor1
+0023   281A           00055         GOTO tres
+0024   0008           00056         RETURN
 Warning[205]: Found directive in column 1. (END)
-                      00049 END
-MPASM  5.51                           3_8.ASM   1-5-2023  1:17:07         PAGE  3
+                      00057 END
+MPASM  5.51                          3_10.ASM   1-5-2023  1:43:32         PAGE  3
 
 
 SYMBOL TABLE
@@ -138,7 +146,7 @@ CSRC                              00000007
 D                                 00000005
 DATA_ADDRESS                      00000005
 DC                                00000001
-MPASM  5.51                           3_8.ASM   1-5-2023  1:17:07         PAGE  4
+MPASM  5.51                          3_10.ASM   1-5-2023  1:43:32         PAGE  4
 
 
 SYMBOL TABLE
@@ -197,7 +205,7 @@ P                                 00000004
 PCFG0                             00000000
 PCFG1                             00000001
 PCFG2                             00000002
-MPASM  5.51                           3_8.ASM   1-5-2023  1:17:07         PAGE  5
+MPASM  5.51                          3_10.ASM   1-5-2023  1:43:32         PAGE  5
 
 
 SYMBOL TABLE
@@ -256,7 +264,7 @@ RC9                               00000006
 RCD8                              00000000
 RCEN                              00000003
 RCIE                              00000005
-MPASM  5.51                           3_8.ASM   1-5-2023  1:17:07         PAGE  6
+MPASM  5.51                          3_10.ASM   1-5-2023  1:43:32         PAGE  6
 
 
 SYMBOL TABLE
@@ -315,7 +323,7 @@ T1CKPS1                           00000005
 T1CON                             00000010
 T1INSYNC                          00000002
 T1OSCEN                           00000003
-MPASM  5.51                           3_8.ASM   1-5-2023  1:17:07         PAGE  7
+MPASM  5.51                          3_10.ASM   1-5-2023  1:43:32         PAGE  7
 
 
 SYMBOL TABLE
@@ -374,7 +382,7 @@ TRISD1                            00000001
 TRISD2                            00000002
 TRISD3                            00000003
 TRISD4                            00000004
-MPASM  5.51                           3_8.ASM   1-5-2023  1:17:07         PAGE  8
+MPASM  5.51                          3_10.ASM   1-5-2023  1:43:32         PAGE  8
 
 
 SYMBOL TABLE
@@ -433,7 +441,7 @@ _LVP_ON                           00003FFF
 _PWRTE_OFF                        00003FFF
 _PWRTE_ON                         00003FF7
 _RC_OSC                           00003FFF
-MPASM  5.51                           3_8.ASM   1-5-2023  1:17:07         PAGE  9
+MPASM  5.51                          3_10.ASM   1-5-2023  1:43:32         PAGE  9
 
 
 SYMBOL TABLE
@@ -449,14 +457,14 @@ _WRT_OFF                          00003DFF
 _WRT_ON                           00003FFF
 _XT_OSC                           00003FFD
 __16F877A                         00000001
-cte1                              00000090
+cte1                              000000FF
 cte2                              00000060
 cte3                              00000060
-dos                               00000015
+dos                               0000001C
 loop2                             0000000B
-retardo                           00000011
-tres                              00000013
-uno                               00000017
+retardo                           00000018
+tres                              0000001A
+uno                               0000001E
 valor1                            00000021
 valor2                            00000022
 valor3                            00000023
@@ -464,12 +472,12 @@ valor3                            00000023
 
 MEMORY USAGE MAP ('X' = Used,  '-' = Unused)
 
-0000 : X----XXXXXXXXXXX XXXXXXXXXXXXXX-- ---------------- ----------------
+0000 : X----XXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXX----------- ----------------
 
 All other memory blocks unused.
 
-Program Memory Words Used:    26
-Program Memory Words Free:  8166
+Program Memory Words Used:    33
+Program Memory Words Free:  8159
 
 
 Errors   :     0

@@ -1,4 +1,4 @@
-MPASM  5.51                           3_8.ASM   1-5-2023  1:17:07         PAGE  1
+MPASM  5.51                           3_9.ASM   1-5-2023  1:29:59         PAGE  1
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -24,62 +24,64 @@ Message[301]: MESSAGE: (Processor-header file mismatch.  Verify selected process
   00000023            00006 valor3 equ h'23'
                       00007 ;cte1 equ 20h
                       00008 ;cte1 equ 8h
-  00000090            00009 cte1 equ 90h
+  00000045            00009 cte1 equ 45h                    ; Aproximadamente 1/2 segundo
   00000060            00010 cte2 equ 60h
   00000060            00011 cte3 equ 60h
-                      00012  
+                      00012 
+  00000024            00013 salida equ h'24'                ; Variable auxiliar
 Warning[205]: Found directive in column 1. (ORG)
-0000                  00013 ORG 0
+0000                  00014 ORG 0
 Warning[203]: Found opcode in column 1. (GOTO)
-0000   2805           00014 GOTO INICIO
+0000   2805           00015 GOTO INICIO
 Warning[205]: Found directive in column 1. (ORG)
-0005                  00015 ORG 5
-                      00016 
-0005                  00017 INICIO:                                 ; Seccion de inicio
-0005   1683           00018         BSF STATUS,RP0
-0006   1303           00019         BCF STATUS,RP1          ; Cambio al banco 1
-0007   3000           00020         MOVLW H'0'                      ; W <- h'0'
+0005                  00016 ORG 5
+                      00017 
+0005                  00018 INICIO:                                 ; Seccion de inicio
+0005   1683           00019         BSF STATUS,RP0
+0006   1303           00020         BCF STATUS,RP1          ; Cambio al banco 1
+0007   3000           00021         MOVLW H'0'                      ; W <- h'0'
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-0008   0086           00021         MOVWF TRISB                     ; Configura puertos B como salidas
-0009   1283           00022         BCF STATUS,RP0          ; Cambio al banco 0
-000A   0186           00023         CLRF PORTB                      ; Limpia PORTB donde se aplican las salidas
-000B                  00024 loop2
-000B   30FF           00025         MOVLW H'FF'                     ; W <- H'FF'
-000C   0086           00026         MOVWF PORTB                     ; PORTB <- W
-000D   2011           00027         CALL retardo            ; Llama a retardo
-000E   0186           00028         CLRF PORTB                      ; Apaga todos los leds
-000F   2011           00029         CALL retardo            ; Llama a retardo
-0010   280B           00030         GOTO loop2                      ; Reinicia
-                      00031  
-0011                  00032 retardo                                 ; Subrutina de retardo. Mantiene ocupado al PIC
-0011   3090           00033         MOVLW cte1                      ; durante cierta cantidad de tiempo. Despues regresa a
-0012   00A1           00034         MOVWF valor1            ; la linea de codigo donde se invoco.
-0013                  00035 tres
-0013   3060           00036         MOVLW cte2
-0014   00A2           00037         MOVWF valor2
-MPASM  5.51                           3_8.ASM   1-5-2023  1:17:07         PAGE  2
+0008   0086           00022         MOVWF TRISB                     ; Configura puertos B como salidas
+0009   1283           00023         BCF STATUS,RP0          ; Cambio al banco 0
+000A   0186           00024         CLRF PORTB                      ; Limpia PORTB donde se aplican las salidas
+000B   01A4           00025         CLRF salida                     ; Limpiamos la variable
+000C                  00026 loop2
+Message[305]: Using default destination of 1 (file).
+000C   0CA4           00027         RRF salida                      ; Rotar salida a la derecha
+000D   0824           00028         MOVFW salida            ; W <- salida
+000E   0086           00029         MOVWF PORTB                     ; PORTB <- W
+000F   2011           00030         CALL retardo            ; Tiempo que permanece encendido
+0010   280C           00031         GOTO loop2                      ; Reinicia
+                      00032  
+0011                  00033 retardo                                 ; Subrutina de retardo. Mantiene ocupado al PIC
+0011   3045           00034         MOVLW cte1                      ; durante cierta cantidad de tiempo. Despues regresa a
+0012   00A1           00035         MOVWF valor1            ; la linea de codigo donde se invoco.
+0013                  00036 tres
+MPASM  5.51                           3_9.ASM   1-5-2023  1:29:59         PAGE  2
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
   VALUE
 
-0015                  00038 dos
-0015   3060           00039         MOVLW cte3
-0016   00A3           00040         MOVWF valor3
-0017                  00041 uno
+0013   3060           00037         MOVLW cte2
+0014   00A2           00038         MOVWF valor2
+0015                  00039 dos
+0015   3060           00040         MOVLW cte3
+0016   00A3           00041         MOVWF valor3
+0017                  00042 uno
 Message[305]: Using default destination of 1 (file).
-0017   0BA3           00042         DECFSZ valor3
-0018   2817           00043         GOTO uno
+0017   0BA3           00043         DECFSZ valor3
+0018   2817           00044         GOTO uno
 Message[305]: Using default destination of 1 (file).
-0019   0BA2           00044         DECFSZ valor2
-001A   2815           00045         GOTO dos
+0019   0BA2           00045         DECFSZ valor2
+001A   2815           00046         GOTO dos
 Message[305]: Using default destination of 1 (file).
-001B   0BA1           00046         DECFSZ valor1
-001C   2813           00047         GOTO tres
-001D   0008           00048         RETURN
+001B   0BA1           00047         DECFSZ valor1
+001C   2813           00048         GOTO tres
+001D   0008           00049         RETURN
 Warning[205]: Found directive in column 1. (END)
-                      00049 END
-MPASM  5.51                           3_8.ASM   1-5-2023  1:17:07         PAGE  3
+                      00050 END
+MPASM  5.51                           3_9.ASM   1-5-2023  1:29:59         PAGE  3
 
 
 SYMBOL TABLE
@@ -138,7 +140,7 @@ CSRC                              00000007
 D                                 00000005
 DATA_ADDRESS                      00000005
 DC                                00000001
-MPASM  5.51                           3_8.ASM   1-5-2023  1:17:07         PAGE  4
+MPASM  5.51                           3_9.ASM   1-5-2023  1:29:59         PAGE  4
 
 
 SYMBOL TABLE
@@ -197,7 +199,7 @@ P                                 00000004
 PCFG0                             00000000
 PCFG1                             00000001
 PCFG2                             00000002
-MPASM  5.51                           3_8.ASM   1-5-2023  1:17:07         PAGE  5
+MPASM  5.51                           3_9.ASM   1-5-2023  1:29:59         PAGE  5
 
 
 SYMBOL TABLE
@@ -256,7 +258,7 @@ RC9                               00000006
 RCD8                              00000000
 RCEN                              00000003
 RCIE                              00000005
-MPASM  5.51                           3_8.ASM   1-5-2023  1:17:07         PAGE  6
+MPASM  5.51                           3_9.ASM   1-5-2023  1:29:59         PAGE  6
 
 
 SYMBOL TABLE
@@ -315,7 +317,7 @@ T1CKPS1                           00000005
 T1CON                             00000010
 T1INSYNC                          00000002
 T1OSCEN                           00000003
-MPASM  5.51                           3_8.ASM   1-5-2023  1:17:07         PAGE  7
+MPASM  5.51                           3_9.ASM   1-5-2023  1:29:59         PAGE  7
 
 
 SYMBOL TABLE
@@ -374,7 +376,7 @@ TRISD1                            00000001
 TRISD2                            00000002
 TRISD3                            00000003
 TRISD4                            00000004
-MPASM  5.51                           3_8.ASM   1-5-2023  1:17:07         PAGE  8
+MPASM  5.51                           3_9.ASM   1-5-2023  1:29:59         PAGE  8
 
 
 SYMBOL TABLE
@@ -433,7 +435,7 @@ _LVP_ON                           00003FFF
 _PWRTE_OFF                        00003FFF
 _PWRTE_ON                         00003FF7
 _RC_OSC                           00003FFF
-MPASM  5.51                           3_8.ASM   1-5-2023  1:17:07         PAGE  9
+MPASM  5.51                           3_9.ASM   1-5-2023  1:29:59         PAGE  9
 
 
 SYMBOL TABLE
@@ -449,12 +451,13 @@ _WRT_OFF                          00003DFF
 _WRT_ON                           00003FFF
 _XT_OSC                           00003FFD
 __16F877A                         00000001
-cte1                              00000090
+cte1                              00000045
 cte2                              00000060
 cte3                              00000060
 dos                               00000015
-loop2                             0000000B
+loop2                             0000000C
 retardo                           00000011
+salida                            00000024
 tres                              00000013
 uno                               00000017
 valor1                            00000021
@@ -474,6 +477,6 @@ Program Memory Words Free:  8166
 
 Errors   :     0
 Warnings :     6 reported,     0 suppressed
-Messages :     5 reported,     0 suppressed
+Messages :     6 reported,     0 suppressed
 
 
