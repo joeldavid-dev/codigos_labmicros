@@ -1,5 +1,5 @@
 MPLINK 4.49, Linker
-Linker Map File - Created Thu Jan 05 03:41:38 2023
+Linker Map File - Created Thu Jan 05 03:58:05 2023
 
                                  Section Info
                   Section       Type    Address   Location Size(Bytes)
@@ -22,19 +22,19 @@ Linker Map File - Created Thu Jan 05 03:41:38 2023
                               Symbols - Sorted by Name
                      Name    Address   Location    Storage File                     
                 ---------  ---------  ---------  --------- ---------                
-                     CERO   0x000012    program     static C:\Users\joeld\Desktop\Materias del semestre\MICROCOMPUTADORAS\Laboratorio\Practicas\Codigos\Practica 4\4_1.asm
-                   INICIO   0x000005    program     static C:\Users\joeld\Desktop\Materias del semestre\MICROCOMPUTADORAS\Laboratorio\Practicas\Codigos\Practica 4\4_1.asm
-                 SELECTOR   0x00000f    program     static C:\Users\joeld\Desktop\Materias del semestre\MICROCOMPUTADORAS\Laboratorio\Practicas\Codigos\Practica 4\4_1.asm
-                      UNO   0x000015    program     static C:\Users\joeld\Desktop\Materias del semestre\MICROCOMPUTADORAS\Laboratorio\Practicas\Codigos\Practica 4\4_1.asm
+                     CERO   0x000012    program     static C:\Users\joel david\Desktop\codigos_labmicros\Practica 4\4_1.asm
+                   INICIO   0x000005    program     static C:\Users\joel david\Desktop\codigos_labmicros\Practica 4\4_1.asm
+                 SELECTOR   0x00000f    program     static C:\Users\joel david\Desktop\codigos_labmicros\Practica 4\4_1.asm
+                      UNO   0x000015    program     static C:\Users\joel david\Desktop\codigos_labmicros\Practica 4\4_1.asm
 
 
 
                               Symbols - Sorted by Address
                      Name    Address   Location    Storage File                     
                 ---------  ---------  ---------  --------- ---------                
-                   INICIO   0x000005    program     static C:\Users\joeld\Desktop\Materias del semestre\MICROCOMPUTADORAS\Laboratorio\Practicas\Codigos\Practica 4\4_1.asm
-                 SELECTOR   0x00000f    program     static C:\Users\joeld\Desktop\Materias del semestre\MICROCOMPUTADORAS\Laboratorio\Practicas\Codigos\Practica 4\4_1.asm
-                     CERO   0x000012    program     static C:\Users\joeld\Desktop\Materias del semestre\MICROCOMPUTADORAS\Laboratorio\Practicas\Codigos\Practica 4\4_1.asm
-                      UNO   0x000015    program     static C:\Users\joeld\Desktop\Materias del semestre\MICROCOMPUTADORAS\Laboratorio\Practicas\Codigos\Practica 4\4_1.asm
+                   INICIO   0x000005    program     static C:\Users\joel david\Desktop\codigos_labmicros\Practica 4\4_1.asm
+                 SELECTOR   0x00000f    program     static C:\Users\joel david\Desktop\codigos_labmicros\Practica 4\4_1.asm
+                     CERO   0x000012    program     static C:\Users\joel david\Desktop\codigos_labmicros\Practica 4\4_1.asm
+                      UNO   0x000015    program     static C:\Users\joel david\Desktop\codigos_labmicros\Practica 4\4_1.asm
 
 

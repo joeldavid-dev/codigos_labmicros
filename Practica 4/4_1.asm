@@ -10,10 +10,10 @@ INICIO:					; Seccion de inicio
 	BCF STATUS,RP1		; Cambio al banco 1
 	MOVLW H'0'			; W <- H'0'
 	MOVWF TRISB			; Configura puertos B como salidas
-	MOVLW H'06'			; W <- 6
-	MOVWF ADCON1		; Configura puerto A como analogico
-	MOVLW H'FF'			; W <- FF
-	MOVWF ADCON1		; Configura puerto A como entradas
+	MOVLW H'07'			; W <- 7
+	MOVWF ADCON1		; Configura puerto A como digital
+	MOVLW H'1F'			; W <- 1F
+	MOVWF TRISA			; Configura puerto A como entradas
 	BCF STATUS,RP0		; Cambio al banco 0
 	CLRF PORTB			; Limpia PORTB donde se aplican las salidas
 

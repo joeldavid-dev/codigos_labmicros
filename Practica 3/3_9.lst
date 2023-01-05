@@ -1,4 +1,4 @@
-MPASM  5.51                           3_9.ASM   1-5-2023  1:29:59         PAGE  1
+MPASM  5.51                           3_9.ASM   1-5-2023  4:43:12         PAGE  1
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -57,7 +57,7 @@ Message[305]: Using default destination of 1 (file).
 0011   3045           00034         MOVLW cte1                      ; durante cierta cantidad de tiempo. Despues regresa a
 0012   00A1           00035         MOVWF valor1            ; la linea de codigo donde se invoco.
 0013                  00036 tres
-MPASM  5.51                           3_9.ASM   1-5-2023  1:29:59         PAGE  2
+MPASM  5.51                           3_9.ASM   1-5-2023  4:43:12         PAGE  2
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -81,7 +81,7 @@ Message[305]: Using default destination of 1 (file).
 001D   0008           00049         RETURN
 Warning[205]: Found directive in column 1. (END)
                       00050 END
-MPASM  5.51                           3_9.ASM   1-5-2023  1:29:59         PAGE  3
+MPASM  5.51                           3_9.ASM   1-5-2023  4:43:12         PAGE  3
 
 
 SYMBOL TABLE
@@ -140,7 +140,7 @@ CSRC                              00000007
 D                                 00000005
 DATA_ADDRESS                      00000005
 DC                                00000001
-MPASM  5.51                           3_9.ASM   1-5-2023  1:29:59         PAGE  4
+MPASM  5.51                           3_9.ASM   1-5-2023  4:43:12         PAGE  4
 
 
 SYMBOL TABLE
@@ -199,7 +199,7 @@ P                                 00000004
 PCFG0                             00000000
 PCFG1                             00000001
 PCFG2                             00000002
-MPASM  5.51                           3_9.ASM   1-5-2023  1:29:59         PAGE  5
+MPASM  5.51                           3_9.ASM   1-5-2023  4:43:12         PAGE  5
 
 
 SYMBOL TABLE
@@ -258,7 +258,7 @@ RC9                               00000006
 RCD8                              00000000
 RCEN                              00000003
 RCIE                              00000005
-MPASM  5.51                           3_9.ASM   1-5-2023  1:29:59         PAGE  6
+MPASM  5.51                           3_9.ASM   1-5-2023  4:43:12         PAGE  6
 
 
 SYMBOL TABLE
@@ -317,7 +317,7 @@ T1CKPS1                           00000005
 T1CON                             00000010
 T1INSYNC                          00000002
 T1OSCEN                           00000003
-MPASM  5.51                           3_9.ASM   1-5-2023  1:29:59         PAGE  7
+MPASM  5.51                           3_9.ASM   1-5-2023  4:43:12         PAGE  7
 
 
 SYMBOL TABLE
@@ -376,7 +376,7 @@ TRISD1                            00000001
 TRISD2                            00000002
 TRISD3                            00000003
 TRISD4                            00000004
-MPASM  5.51                           3_9.ASM   1-5-2023  1:29:59         PAGE  8
+MPASM  5.51                           3_9.ASM   1-5-2023  4:43:12         PAGE  8
 
 
 SYMBOL TABLE
@@ -435,7 +435,7 @@ _LVP_ON                           00003FFF
 _PWRTE_OFF                        00003FFF
 _PWRTE_ON                         00003FF7
 _RC_OSC                           00003FFF
-MPASM  5.51                           3_9.ASM   1-5-2023  1:29:59         PAGE  9
+MPASM  5.51                           3_9.ASM   1-5-2023  4:43:12         PAGE  9
 
 
 SYMBOL TABLE
